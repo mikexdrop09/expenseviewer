@@ -1,5 +1,6 @@
 <?php 
 include('./components/modalComponents/contents/headerLogin.php');
+$failed="";
 ?>
 
 <img id="background-image" src="./components/css/images/about-us-3.jpg"></img>
@@ -33,4 +34,21 @@ include('./components/modalComponents/contents/headerLogin.php');
 
 <?php 
 include('./components/modalComponents/contents/footer.php')
+?>
+
+<?php
+if ($failed) {
+echo "
+<script>
+if ($failed==1) {
+document.getElementById('log-in-message').innerHTML = 'Incorrect username or password!';
+document.getElementById('log-in-message').style.fontSize='80%';
+document.getElementById('log-in-message').style.color ='#ff8080';
+
+} else {
+ document.getElementById('log-in-message').innerHTML = '';
+}
+</script>
+";
+}
 ?>

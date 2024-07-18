@@ -1,8 +1,15 @@
 $(document).ready( function () {
-    $('.exTable').DataTable();
+    new DataTable('.exTable',{
+       
+    });
 
     new DataTable('.billingTable',{
-        autoWidth:false
+        fixedColumns:{
+            start: 6
+        },
+        paging: false,
+        scrollCollapse:true,
+        scrollX:true,
     });
 
     $('#expenseModal').modal("show");

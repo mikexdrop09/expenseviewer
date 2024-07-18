@@ -1,5 +1,5 @@
-<?php 
-include('./components/modalComponents/contents/headerAdmin.php')
+<?php
+include ('./components/modalComponents/contents/headerAdmin.php');
 ?>
 
 
@@ -29,9 +29,11 @@ include('./components/modalComponents/contents/headerAdmin.php')
                     <tbody>
 
                         <?php
-                            include('./components/connection/conn.php');
 
-                            $stmt = $conn->prepare("SELECT tblproject.No,\n
+                        include_once ('./class.cryptor.php');
+                        include ('./components/connection/conn.php');
+                        $crypt = new Cryptor();
+                        $stmt = $conn->prepare("SELECT tblproject.No,\n
                             Upper(ContractID),\n
                             (CASE WHEN ContractName='' then Upper(ProjectName) ELSE Upper(ContractName) END),\n
                             Upper(ProjectStatus),\n
@@ -47,50 +49,58 @@ include('./components/modalComponents/contents/headerAdmin.php')
                             FROM tblproject \n
                             LEFT JOIN tblexpenses ON tblproject.No=ProjectID \n
                             WHERE ProjectName !='' GROUP BY ContractID");
-                            $stmt->execute();
+                        $stmt->execute();
 
-                            $result = $stmt->fetchAll();
-                            foreach ($result as $row) {
-                                $No =$row[0];
-                                $contractID =$row[1];
-                                $projectName =$row[2];
-                                $projectStatus = $row[3];
-                                $amount = $row[4];
-                                $contractAddress = $row[5];
-                                $contractAmount = $row[6];
-                                $dateStarted = $row[7];
-                                $dateFinished = $row[8];
-                                $accomplishment = $row[9];
-                                $vat = $row[10];
-                                $lessVat = $row[11];
-                        ?>
-                        <tr>
-                            <th scope="row" id="No-<?php echo $No?>"><?php echo $No ?></th>
-                            <td id="contractID-<?php echo $No?>"><?php echo $contractID ?></td>
-                            <td id="projectName-<?php echo $No?>">
-                                <?php echo html_entity_decode(htmlentities($projectName)) ?></td>
-                            <td id="amount-<?php echo $No?>"><?php echo $amount ?></td>
-                            <td>
-                                <div class="action-button">
-                                    <a class="btn btn-success btn-block" href='./viewSummary.php?idproject=<?php echo $No ?>
-                                            &&?contractID=<?php echo $contractID?>
-                                            &&?contractName=<?php echo $projectName?>
-                                            &&?contractAddress=<?php echo $contractAddress?>
-                                            &&?dateStarted=<?php echo $dateStarted?>
-                                            &&?dateFinished=<?php echo $dateFinished?>
-                                            &&?accomplishment=<?php echo $accomplishment?>
-                                            &&?contractAmount=<?php echo $contractAmount?>
-                                            &&?vat=<?php echo $vat?>
-                                            &&?lessVat=<?php echo $lessVat?>'>
-                                        <img width="30" height="30"
-                                            src="https://img.icons8.com/ios/50/FFFFFF/visible--v1.png"
-                                            alt="visible--v1" /></a>
-                                </div>
-                            </td>
-                        </tr>
+                        $result = $stmt->fetchAll();
+                        foreach ($result as $row) {
+                            $No = $row[0];
+                            $contractID = $row[1];
+                            $projectName = $row[2];
+                            $projectStatus = $row[3];
+                            $amount = $row[4];
+                            $contractAddress = $row[5];
+                            $contractAmount = $row[6];
+                            $dateStarted = $row[7];
+                            $dateFinished = $row[8];
+                            $accomplishment = $row[9];
+                            $vat = $row[10];
+                            $lessVat = $row[11];
+                            ?>
+                            <tr>
+                                <th scope="row" id="No-<?php echo $No ?>"><?php echo $No ?></th>
+                                <td id="contractID-<?php echo $No ?>"><?php echo $contractID ?></td>
+                                <td id="projectName-<?php echo $No ?>">
+                                    <?php echo html_entity_decode(htmlentities($projectName)) ?>
+                                </td>
+                                <td id="amount-<?php echo $No ?>"><?php echo $amount ?></td>
+                                <td>
+                                    <div class="action-button">
+                                        <?php /*
+                                       <a class="btn btn-success btn-block" href='./summary?idproject=<?php echo $crypt->encryptId($No) ?>
+                                           &&?contractID=<?php echo $crypt->encryptId($contractID) ?>
+                                           &&?contractName=<?php echo $crypt->encryptId($projectName) ?>
+                                           &&?contractAddress=<?php echo $crypt->encryptId($contractAddress) ?>
+                                           &&?dateStarted=<?php echo $crypt->encryptId($dateStarted) ?>
+                                           &&?dateFinished=<?php echo $crypt->encryptId($dateFinished) ?>
+                                           &&?accomplishment=<?php echo $crypt->encryptId($accomplishment) ?>
+                                           &&?contractAmount=<?php echo $crypt->encryptId($contractAmount) ?>
+                                           &&?vat=<?php echo $crypt->encryptId($vat) ?>
+                                           &&?lessVat=<?php echo $crypt->encryptId($lessVat) ?>'>
+                                           <img width="30" height="30" src="https://img.icons8.com/ios/50/FFFFFF/visible--v1.png" alt="visible--v1" /></a> 
+                                           */
+                                        ?>
 
-                        <?php
-                            }  
+                                        <a class="btn btn-success btn-block"
+                                            href='./summary/<?php echo $crypt->encryptId($No) ?>'>
+                                            <img width="30" height="30"
+                                                src="https://img.icons8.com/ios/50/FFFFFF/visible--v1.png"
+                                                alt="visible--v1" /></a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <?php
+                        }
                         ?>
 
                     </tbody>
@@ -101,6 +111,6 @@ include('./components/modalComponents/contents/headerAdmin.php')
     </div>
 </div>
 
-<?php 
-include('./components/modalComponents/contents/footer.php')
-?>
+<?php
+include ('./components/modalComponents/contents/footer.php')
+    ?>

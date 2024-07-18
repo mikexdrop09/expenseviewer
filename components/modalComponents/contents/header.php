@@ -7,8 +7,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-    
+    <link rel="stylesheet" href="./components/css/datatablestyle.css" />
+    <link rel="stylesheet" href="./components/css/datatablecolumns.css" />
     <link rel="stylesheet" href="./components/css/style.css">
 
 </head>
@@ -25,19 +25,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./home">HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./aboutUs.php">ABOUT US <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./about">ABOUT US <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./missionVision.php">MISSION & VISION <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./misvis">MISSION & VISION <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mr-3">
-                    <a class="nav-link" href="./logIn.php">Log-in</a>
+                    <a class="nav-link" href="./login">Log-in</a>
                 </li>
             </ul>
     </div>

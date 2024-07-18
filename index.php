@@ -11,7 +11,7 @@ if (isset($_COOKIE['D12id'])) {
 
         if ($result !== false) {
            
-            header('location: ./viewProject.php');
+            header('location: ./project');
         }
     }
 

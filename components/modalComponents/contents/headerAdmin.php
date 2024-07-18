@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
         session_destroy();
         setcookie('D12id', '', time() - 1);
-        header('location: ./index.php');
+        header('location: ./index');
     }
 }
 ?>
@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-    
+    <link rel="stylesheet" href="./components/css/datatablestyle.css" />
+    <link rel="stylesheet" href="./components/css/datatablecolumns.css" />
     <link rel="stylesheet" href="./components/css/style.css">
 
 </head>
@@ -38,10 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <ul class="navbar-nav mr-auto">
     
                 <li class="nav-item">
-                    <a class="nav-link" href="./viewProject.php">PROJECTS <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./project">PROJECTS <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./billingProject.php">BILLING <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./billing">BILLING <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 

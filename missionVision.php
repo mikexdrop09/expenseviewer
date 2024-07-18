@@ -1,6 +1,6 @@
 <?php
 include ('./components/modalComponents/contents/header.php')
-  ?>
+    ?>
 
 <div class="container-fluid" id="article">
     <div class="row">
@@ -42,4 +42,4 @@ include ('./components/modalComponents/contents/header.php')
 
 <?php
 include ('./components/modalComponents/contents/footer2.php')
-  ?>
+    ?>

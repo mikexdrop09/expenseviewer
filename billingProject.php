@@ -13,7 +13,7 @@ include('./components/modalComponents/contents/headerAdmin.php')
 
             <hr>
             <div class="table-container table-responsive">
-                <table class="table table-lg billingTable">
+                <table class="table table-lg billingTable" style="width:100%">
 
                     <thead class="thead-color">
 
@@ -104,7 +104,7 @@ include('./components/modalComponents/contents/headerAdmin.php')
                             <td id="voucherNo-<?php echo $Date?>"><?php echo $voucherNo ?></td>
                             <td id="billingPercent-<?php echo $Date?>"><?php echo $billingPercent ?></td>
                             <td id="billing-<?php echo $Date?>"><?php echo $billing ?></td>
-                            <td id="collection-<?php echo $Date?>"><?php echo $collection ?></td>
+                            <td id="collection-<?php echo $Date?>"><?php echo $Collection ?></td>
                             <td id="royalty-<?php echo $Date?>"><?php echo $royalty ?></td>
                             <td id="rCheckNo-<?php echo $Date?>"><?php echo $rCheckNo ?></td>
                             <td id="rCheckDate-<?php echo $Date?>"><?php echo $rCheckDate ?></td>
